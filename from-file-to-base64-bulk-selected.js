@@ -22,8 +22,7 @@ module.exports = () => {
 
   // fix this shit later in pdf2pic
   return convert.bulk([2,4], true).then((outputs) => {
-    outputs.forEach(async (output) => {
-      output = await output
+    outputs.forEach((output) => {
       writeFileSync(outputDirectory + `/base64-output.${output.page}.txt`, output.base64);
     
       writeFileSync(outputDirectory + `/base64-output.${output.page}.png`, output.base64, "base64");
